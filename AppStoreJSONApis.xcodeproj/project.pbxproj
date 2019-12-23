@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69D4CE3A717A71C055E8F2FD /* Pods_AppStoreJSONApis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D08BCF0199C1A1267FA40E /* Pods_AppStoreJSONApis.framework */; };
 		C74A89CF220E472D00B61711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A89CE220E472D00B61711 /* AppDelegate.swift */; };
 		C74A89D1220E472D00B61711 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A89D0220E472D00B61711 /* ViewController.swift */; };
 		C74A89D4220E472D00B61711 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74A89D2220E472D00B61711 /* Main.storyboard */; };
 		C74A89D6220E472D00B61711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C74A89D5220E472D00B61711 /* Assets.xcassets */; };
 		C74A89D9220E472D00B61711 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74A89D7220E472D00B61711 /* LaunchScreen.storyboard */; };
 		C74A89E1220E47A600B61711 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A89E0220E47A600B61711 /* BaseTabBarController.swift */; };
+		F058104623B0B16000B48272 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058104523B0B16000B48272 /* AppsSearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C3E2D0427C721BD63BF7363 /* Pods-AppStoreJSONApis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreJSONApis.release.xcconfig"; path = "Target Support Files/Pods-AppStoreJSONApis/Pods-AppStoreJSONApis.release.xcconfig"; sourceTree = "<group>"; };
+		57D08BCF0199C1A1267FA40E /* Pods_AppStoreJSONApis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreJSONApis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		609A1B9D06C3BF9DEB742CC9 /* Pods-AppStoreJSONApis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreJSONApis.debug.xcconfig"; path = "Target Support Files/Pods-AppStoreJSONApis/Pods-AppStoreJSONApis.debug.xcconfig"; sourceTree = "<group>"; };
 		C74A89CB220E472D00B61711 /* AppStoreJSONApis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreJSONApis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74A89CE220E472D00B61711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C74A89D0220E472D00B61711 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		C74A89D8220E472D00B61711 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C74A89DA220E472D00B61711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C74A89E0220E47A600B61711 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		F058104523B0B16000B48272 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69D4CE3A717A71C055E8F2FD /* Pods_AppStoreJSONApis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B23FA7F6F07385E235C25E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57D08BCF0199C1A1267FA40E /* Pods_AppStoreJSONApis.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C74A89C2220E472D00B61711 = {
 			isa = PBXGroup;
 			children = (
 				C74A89CD220E472D00B61711 /* AppStoreJSONApis */,
 				C74A89CC220E472D00B61711 /* Products */,
+				D4514ECF3BB7EEDBE15EAB33 /* Pods */,
+				0B23FA7F6F07385E235C25E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +74,25 @@
 			isa = PBXGroup;
 			children = (
 				C74A89CE220E472D00B61711 /* AppDelegate.swift */,
+				C74A89E0220E47A600B61711 /* BaseTabBarController.swift */,
+				F058104523B0B16000B48272 /* AppsSearchController.swift */,
 				C74A89D0220E472D00B61711 /* ViewController.swift */,
 				C74A89D2220E472D00B61711 /* Main.storyboard */,
 				C74A89D5220E472D00B61711 /* Assets.xcassets */,
 				C74A89D7220E472D00B61711 /* LaunchScreen.storyboard */,
 				C74A89DA220E472D00B61711 /* Info.plist */,
-				C74A89E0220E47A600B61711 /* BaseTabBarController.swift */,
 			);
 			path = AppStoreJSONApis;
+			sourceTree = "<group>";
+		};
+		D4514ECF3BB7EEDBE15EAB33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				609A1B9D06C3BF9DEB742CC9 /* Pods-AppStoreJSONApis.debug.xcconfig */,
+				1C3E2D0427C721BD63BF7363 /* Pods-AppStoreJSONApis.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C74A89DD220E472D00B61711 /* Build configuration list for PBXNativeTarget "AppStoreJSONApis" */;
 			buildPhases = (
+				51CB438869AAC55B7FB6E265 /* [CP] Check Pods Manifest.lock */,
 				C74A89C7220E472D00B61711 /* Sources */,
 				C74A89C8220E472D00B61711 /* Frameworks */,
 				C74A89C9220E472D00B61711 /* Resources */,
+				3CFFD1CE12FBA6FD85F92A5A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +163,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3CFFD1CE12FBA6FD85F92A5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppStoreJSONApis/Pods-AppStoreJSONApis-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppStoreJSONApis/Pods-AppStoreJSONApis-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppStoreJSONApis/Pods-AppStoreJSONApis-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51CB438869AAC55B7FB6E265 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppStoreJSONApis-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C74A89C7220E472D00B61711 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -141,6 +213,7 @@
 				C74A89D1220E472D00B61711 /* ViewController.swift in Sources */,
 				C74A89CF220E472D00B61711 /* AppDelegate.swift in Sources */,
 				C74A89E1220E47A600B61711 /* BaseTabBarController.swift in Sources */,
+				F058104623B0B16000B48272 /* AppsSearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +357,7 @@
 		};
 		C74A89DE220E472D00B61711 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609A1B9D06C3BF9DEB742CC9 /* Pods-AppStoreJSONApis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +376,7 @@
 		};
 		C74A89DF220E472D00B61711 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C3E2D0427C721BD63BF7363 /* Pods-AppStoreJSONApis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
