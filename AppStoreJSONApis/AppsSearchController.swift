@@ -6,10 +6,14 @@
 //  Copyright © 2019 Brian Voong. All rights reserved.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
+import SnapKit
+import RxDataSources
+
 
 class AppsSearchController: UIViewController {
-    
+    let bag = DisposeBag()
     private let cellId = "cellId"
     
     lazy var collectionView: UICollectionView = {
@@ -23,7 +27,34 @@ class AppsSearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "SEARCH"
         self.view.backgroundColor = .green
+        
+        self.view.addSubview(collectionView)
+        layout()
+        bind()
+    }
+    
+    func bind() {
+        
+        Observable.from([1, 2, 3])
+            .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: UICollectionViewCell.self)) { (item, element, cell) in
+                cell.backgroundColor = .red
+            }
+            .disposed(by: bag)
+        
+        
+    }
+    
+    func layout() {
+        collectionView.snp.makeConstraints {
+            if #available(iOS 11.0, *) {
+                $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin).offset(0)
+            } else {
+                $0.top.equalTo(topLayoutGuide.snp.bottom).offset(0)
+            }
+            $0.left.right.bottom.equalToSuperview().inset(0)
+        }
     }
     
 }
@@ -42,7 +73,9 @@ struct AppesSearchPreView: PreviewProvider {
     struct ContainerView: UIViewControllerRepresentable {
         
         func makeUIViewController(context: UIViewControllerRepresentableContext<AppesSearchPreView.ContainerView>) -> UIViewController {
-            return AppsSearchController()
+            let naviVC = UINavigationController(rootViewController: AppsSearchController())
+            naviVC.navigationBar.prefersLargeTitles = true
+            return naviVC
         }
         
         func updateUIViewController(_ uiViewController: AppesSearchPreView.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<AppesSearchPreView.ContainerView>) {
