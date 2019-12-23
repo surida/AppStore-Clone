@@ -17,18 +17,19 @@ class AppsSearchController: UIViewController {
     private let cellId = "cellId"
     
     lazy var collectionView: UICollectionView = {
-            let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .vertical
-            
-            let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-            return cv
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(SearchResultCell.self, forCellWithReuseIdentifier: cellId)
+        cv.backgroundColor = .white
+        return cv
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "SEARCH"
-        self.view.backgroundColor = .green
+//        self.view.backgroundColor = .green
         
         self.view.addSubview(collectionView)
         layout()
@@ -37,12 +38,13 @@ class AppsSearchController: UIViewController {
     
     func bind() {
         
-        Observable.from([1, 2, 3])
-            .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: UICollectionViewCell.self)) { (item, element, cell) in
-                cell.backgroundColor = .red
+        Observable.from([1, 2, 3, 4, 5, 6])
+            .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: SearchResultCell.self)) { (item, element, cell) in
+                
             }
             .disposed(by: bag)
         
+        collectionView.rx.setDelegate(self).disposed(by: bag)
         
     }
     
@@ -55,6 +57,14 @@ class AppsSearchController: UIViewController {
             }
             $0.left.right.bottom.equalToSuperview().inset(0)
         }
+    }
+    
+}
+
+extension AppsSearchController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .init(width: collectionView.frame.width, height: 200)
     }
     
 }
