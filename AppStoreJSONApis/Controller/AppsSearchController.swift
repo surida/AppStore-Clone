@@ -29,7 +29,7 @@ class AppsSearchController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "SEARCH"
-//        self.view.backgroundColor = .green
+        self.view.backgroundColor = .white
         
         self.view.addSubview(collectionView)
         layout()
@@ -64,7 +64,7 @@ class AppsSearchController: UIViewController {
 extension AppsSearchController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: collectionView.frame.width, height: 200)
+        return .init(width: collectionView.frame.width, height: 350)
     }
     
 }

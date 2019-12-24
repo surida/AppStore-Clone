@@ -16,6 +16,9 @@
 		C74A89E1220E47A600B61711 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A89E0220E47A600B61711 /* BaseTabBarController.swift */; };
 		F058104623B0B16000B48272 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058104523B0B16000B48272 /* AppsSearchController.swift */; };
 		F058104A23B0C31D00B48272 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058104923B0C31D00B48272 /* SearchResultCell.swift */; };
+		F09AA3C123B1A99600317F73 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AA3BF23B1A99600317F73 /* UIStackView+Extensions.swift */; };
+		F09AA3C223B1A99600317F73 /* UIView+Extensition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AA3C023B1A99600317F73 /* UIView+Extensition.swift */; };
+		F09AA3C423B1AB5B00317F73 /* UILabel+Extensition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AA3C323B1AB5B00317F73 /* UILabel+Extensition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		C74A89E0220E47A600B61711 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		F058104523B0B16000B48272 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
 		F058104923B0C31D00B48272 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		F09AA3BF23B1A99600317F73 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		F09AA3C023B1A99600317F73 /* UIView+Extensition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensition.swift"; sourceTree = "<group>"; };
+		F09AA3C323B1AB5B00317F73 /* UILabel+Extensition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensition.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 		C74A89CD220E472D00B61711 /* AppStoreJSONApis */ = {
 			isa = PBXGroup;
 			children = (
+				F09AA3BD23B1A91E00317F73 /* Common */,
 				C74A89CE220E472D00B61711 /* AppDelegate.swift */,
 				C74A89E0220E47A600B61711 /* BaseTabBarController.swift */,
 				F058104823B0C1ED00B48272 /* Controller */,
@@ -103,6 +110,24 @@
 				F058104923B0C31D00B48272 /* SearchResultCell.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F09AA3BD23B1A91E00317F73 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F09AA3BE23B1A92700317F73 /* Extensition */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F09AA3BE23B1A92700317F73 /* Extensition */ = {
+			isa = PBXGroup;
+			children = (
+				F09AA3C323B1AB5B00317F73 /* UILabel+Extensition.swift */,
+				F09AA3BF23B1A99600317F73 /* UIStackView+Extensions.swift */,
+				F09AA3C023B1A99600317F73 /* UIView+Extensition.swift */,
+			);
+			path = Extensition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,8 +248,11 @@
 				C74A89D1220E472D00B61711 /* ViewController.swift in Sources */,
 				C74A89CF220E472D00B61711 /* AppDelegate.swift in Sources */,
 				C74A89E1220E47A600B61711 /* BaseTabBarController.swift in Sources */,
+				F09AA3C223B1A99600317F73 /* UIView+Extensition.swift in Sources */,
+				F09AA3C123B1A99600317F73 /* UIStackView+Extensions.swift in Sources */,
 				F058104623B0B16000B48272 /* AppsSearchController.swift in Sources */,
 				F058104A23B0C31D00B48272 /* SearchResultCell.swift in Sources */,
+				F09AA3C423B1AB5B00317F73 /* UILabel+Extensition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
