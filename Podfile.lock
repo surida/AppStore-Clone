@@ -1,46 +1,56 @@
 PODS:
-  - Differentiator (4.0.1)
-  - RxCocoa (5.0.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxDataSources (4.0.1):
-    - Differentiator (~> 4.0)
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
-  - RxOptional (4.1.0):
-    - RxCocoa (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.0.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.0.1)
+  - Alamofire (4.9.1)
+  - Differentiator (3.1.0)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - Moya/RxSwift (13.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - Result (4.1.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxOptional (3.1.3):
+    - RxCocoa
+    - RxSwift
+  - RxSwift (4.5.0)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - RxCocoa
-  - RxDataSources (~> 4.0)
-  - RxOptional
-  - RxSwift
+  - Moya/RxSwift (~> 13.0)
+  - RxCocoa (~> 4.0)
+  - RxDataSources (~> 3.0)
+  - RxOptional (~> 3.1.3)
+  - RxSwift (~> 4.0)
   - SnapKit
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Differentiator
+    - Moya
+    - Result
     - RxCocoa
     - RxDataSources
     - RxOptional
-    - RxRelay
     - RxSwift
     - SnapKit
 
 SPEC CHECKSUMS:
-  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
-  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
-  RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
-  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
-  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxOptional: b97b59183af80d1e729ac9e51d09a10be668d6a8
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: e2ff02464b1fe30973dfad34cb0cee01d17e9e09
+PODFILE CHECKSUM: 7a38724db8da6965144a1f65f2467d15d20edc86
 
 COCOAPODS: 1.8.4

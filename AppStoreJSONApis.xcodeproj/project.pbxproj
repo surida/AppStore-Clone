@@ -19,6 +19,9 @@
 		F09AA3C123B1A99600317F73 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AA3BF23B1A99600317F73 /* UIStackView+Extensions.swift */; };
 		F09AA3C223B1A99600317F73 /* UIView+Extensition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AA3C023B1A99600317F73 /* UIView+Extensition.swift */; };
 		F09AA3C423B1AB5B00317F73 /* UILabel+Extensition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AA3C323B1AB5B00317F73 /* UILabel+Extensition.swift */; };
+		F0D5B0BB23B2080D002CC5F2 /* ITunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5B0BA23B2080D002CC5F2 /* ITunesService.swift */; };
+		F0D5B0BE23B20A71002CC5F2 /* ITunesSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5B0BD23B20A71002CC5F2 /* ITunesSearchResult.swift */; };
+		F0D5B0C023B20D42002CC5F2 /* ITunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5B0BF23B20D42002CC5F2 /* ITunesAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		F09AA3BF23B1A99600317F73 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		F09AA3C023B1A99600317F73 /* UIView+Extensition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensition.swift"; sourceTree = "<group>"; };
 		F09AA3C323B1AB5B00317F73 /* UILabel+Extensition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensition.swift"; sourceTree = "<group>"; };
+		F0D5B0BA23B2080D002CC5F2 /* ITunesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesService.swift; sourceTree = "<group>"; };
+		F0D5B0BD23B20A71002CC5F2 /* ITunesSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesSearchResult.swift; sourceTree = "<group>"; };
+		F0D5B0BF23B20D42002CC5F2 /* ITunesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITunesAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +87,10 @@
 		C74A89CD220E472D00B61711 /* AppStoreJSONApis */ = {
 			isa = PBXGroup;
 			children = (
-				F09AA3BD23B1A91E00317F73 /* Common */,
 				C74A89CE220E472D00B61711 /* AppDelegate.swift */,
-				C74A89E0220E47A600B61711 /* BaseTabBarController.swift */,
 				F058104823B0C1ED00B48272 /* Controller */,
+				F09AA3BD23B1A91E00317F73 /* Common */,
+				F0D5B0B523B203EB002CC5F2 /* Network */,
 				C74A89D0220E472D00B61711 /* ViewController.swift */,
 				C74A89D2220E472D00B61711 /* Main.storyboard */,
 				C74A89D5220E472D00B61711 /* Assets.xcassets */,
@@ -106,6 +112,7 @@
 		F058104823B0C1ED00B48272 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C74A89E0220E47A600B61711 /* BaseTabBarController.swift */,
 				F058104523B0B16000B48272 /* AppsSearchController.swift */,
 				F058104923B0C31D00B48272 /* SearchResultCell.swift */,
 			);
@@ -128,6 +135,40 @@
 				F09AA3C023B1A99600317F73 /* UIView+Extensition.swift */,
 			);
 			path = Extensition;
+			sourceTree = "<group>";
+		};
+		F0D5B0B523B203EB002CC5F2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F0D5B0B823B207A3002CC5F2 /* API */,
+				F0D5B0B923B207AB002CC5F2 /* Service */,
+				F0D5B0BC23B20A5D002CC5F2 /* Entity */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F0D5B0B823B207A3002CC5F2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F0D5B0BF23B20D42002CC5F2 /* ITunesAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F0D5B0B923B207AB002CC5F2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F0D5B0BA23B2080D002CC5F2 /* ITunesService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F0D5B0BC23B20A5D002CC5F2 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F0D5B0BD23B20A71002CC5F2 /* ITunesSearchResult.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,8 +288,11 @@
 			files = (
 				C74A89D1220E472D00B61711 /* ViewController.swift in Sources */,
 				C74A89CF220E472D00B61711 /* AppDelegate.swift in Sources */,
+				F0D5B0BE23B20A71002CC5F2 /* ITunesSearchResult.swift in Sources */,
 				C74A89E1220E47A600B61711 /* BaseTabBarController.swift in Sources */,
 				F09AA3C223B1A99600317F73 /* UIView+Extensition.swift in Sources */,
+				F0D5B0BB23B2080D002CC5F2 /* ITunesService.swift in Sources */,
+				F0D5B0C023B20D42002CC5F2 /* ITunesAPI.swift in Sources */,
 				F09AA3C123B1A99600317F73 /* UIStackView+Extensions.swift in Sources */,
 				F058104623B0B16000B48272 /* AppsSearchController.swift in Sources */,
 				F058104A23B0C31D00B48272 /* SearchResultCell.swift in Sources */,
@@ -336,6 +380,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -390,6 +435,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -408,7 +454,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.letsbuildthatapp.AppStoreJSONApis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -427,7 +473,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.letsbuildthatapp.AppStoreJSONApis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

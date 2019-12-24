@@ -26,6 +26,8 @@ class AppsSearchController: UIViewController {
         return cv
     }()
     
+    let iTunesService: ITunesService = ITunesService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "SEARCH"
@@ -38,13 +40,21 @@ class AppsSearchController: UIViewController {
     
     func bind() {
         
-        Observable.from([1, 2, 3, 4, 5, 6])
+//        Observable.from([1, 2, 3, 4, 5, 6])
+        iTunesService.search(term: "instagram", entity: "software")
+            .map { $0.results }
+            .asObservable()
             .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: SearchResultCell.self)) { (item, element, cell) in
                 
             }
             .disposed(by: bag)
         
         collectionView.rx.setDelegate(self).disposed(by: bag)
+        
+        //https://itunes.apple.com/search?term=instagram&entity=software
+        let ttt = iTunesService.search(term: "instagram", entity: "software")
+            .map { $0.results }
+        
         
     }
     
@@ -79,7 +89,6 @@ struct AppesSearchPreView: PreviewProvider {
         ContainerView()
     }
 
-    
     struct ContainerView: UIViewControllerRepresentable {
         
         func makeUIViewController(context: UIViewControllerRepresentableContext<AppesSearchPreView.ContainerView>) -> UIViewController {
@@ -93,6 +102,3 @@ struct AppesSearchPreView: PreviewProvider {
     }
     
 }
-
-
-
