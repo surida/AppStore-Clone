@@ -11,5 +11,6 @@ target 'AppStoreJSONApis' do
   pod 'RxDataSources', '~> 3.0'
   pod 'RxOptional', '~> 3.1.3'
   pod 'Moya/RxSwift', '~> 13.0'
+  pod 'SDWebImage', '~> 5.0'
 
 end

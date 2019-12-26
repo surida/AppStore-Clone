@@ -9,6 +9,7 @@
 import RxSwift
 import RxCocoa
 import SnapKit
+import SDWebImage
 
 class SearchResultCell: UICollectionViewCell {
     
@@ -89,7 +90,8 @@ class SearchResultCell: UICollectionViewCell {
     
     lazy var overallStackView: UIStackView = {
         let sv = UIStackView(arrangedSubviews: [
-            self.topHStackView, self.screenShotStackView
+            self.topHStackView,
+            self.screenShotStackView
         ])
         sv.axis = .vertical
         sv.spacing = 16
@@ -99,7 +101,34 @@ class SearchResultCell: UICollectionViewCell {
     func createScreenShotImageView() -> UIImageView {
         let iv = UIImageView()
         iv.backgroundColor = .blue
+        iv.contentMode = .scaleAspectFit // change something?
+        iv.layer.cornerRadius = 8
+        iv.layer.masksToBounds = true
+        iv.layer.borderWidth = 0.5
+        iv.layer.borderColor = UIColor.init(white: 0.5, alpha: 0.5).cgColor
         return iv
+    }
+    
+    var resultItem: ITunesSearchResultItem! {
+        didSet {
+            nameLabel.text = resultItem.trackName
+            categoryLabel.text = resultItem.primaryGenreName.rawValue
+            ratingLabel.text = "\(resultItem.averageUserRating ?? 0.0)"
+            appIconImageView.sd_setImage(with: URL(string: resultItem.artworkUrl100), completed: nil)
+            
+            if resultItem.screenshotUrls.count > 0 {
+                screenshot1ImageView.sd_setImage(with: URL(string: resultItem.screenshotUrls[0]), completed: nil)
+            }
+            
+            if resultItem.screenshotUrls.count > 1 {
+                screenshot2ImageView.sd_setImage(with: URL(string: resultItem.screenshotUrls[1]), completed: nil)
+            }
+            
+            if resultItem.screenshotUrls.count > 2 {
+                screenshot3ImageView.sd_setImage(with: URL(string: resultItem.screenshotUrls[2]), completed: nil)
+            }
+            
+        }
     }
     
     override init(frame: CGRect) {

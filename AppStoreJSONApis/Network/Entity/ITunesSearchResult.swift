@@ -19,7 +19,7 @@ struct ITunesSearchResultItem: Codable {
     let screenshotUrls, ipadScreenshotUrls: [String]
     let artworkUrl512: String
     let artistViewURL: String?
-    let artworkUrl60, artworkUrl100: String
+    let artworkUrl60, artworkUrl100: String // app icon
     let supportedDevices, advisories: [String]
     let languageCodesISO2A: [String]
     let fileSizeBytes: String
@@ -29,6 +29,7 @@ struct ITunesSearchResultItem: Codable {
     let trackCensoredName: String
     let trackViewURL: String?
     let isVppDeviceBasedLicensingEnabled: Bool
+    let primaryGenreName: PrimaryGenreName
     let genreIDS: [String]?
     let primaryGenreID: Int?
     let sellerName, trackName: String
@@ -44,4 +45,15 @@ struct ITunesSearchResultItem: Codable {
     let resultDescription, bundleID: String?
     let averageUserRating: Double?
     let userRatingCount: Int?
+}
+
+enum PrimaryGenreName: String, Codable {
+    case business = "Business"
+    case entertainment = "Entertainment"
+    case lifestyle = "Lifestyle"
+    case photoVideo = "Photo & Video"
+    case productivity = "Productivity"
+    case reference = "Reference"
+    case socialNetworking = "Social Networking"
+    case utilities = "Utilities"
 }

@@ -40,21 +40,17 @@ class AppsSearchController: UIViewController {
     
     func bind() {
         
-//        Observable.from([1, 2, 3, 4, 5, 6])
+        //https://itunes.apple.com/search?term=instagram&entity=software
         iTunesService.search(term: "instagram", entity: "software")
             .map { $0.results }
             .asObservable()
             .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: SearchResultCell.self)) { (item, element, cell) in
-                
+                print("\(element)")
+                cell.resultItem = element
             }
             .disposed(by: bag)
         
         collectionView.rx.setDelegate(self).disposed(by: bag)
-        
-        //https://itunes.apple.com/search?term=instagram&entity=software
-        let ttt = iTunesService.search(term: "instagram", entity: "software")
-            .map { $0.results }
-        
         
     }
     
@@ -74,7 +70,7 @@ class AppsSearchController: UIViewController {
 extension AppsSearchController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: collectionView.frame.width, height: 350)
+        return .init(width: collectionView.frame.width, height: 320)
     }
     
 }
