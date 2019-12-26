@@ -22,7 +22,7 @@ struct ITunesSearchResultItem: Codable {
     let artworkUrl60, artworkUrl100: String // app icon
     let supportedDevices, advisories: [String]
     let languageCodesISO2A: [String]
-    let fileSizeBytes: String
+    let fileSizeBytes: String?
     let sellerURL: String?
     let averageUserRatingForCurrentVersion: Double?
     let userRatingCountForCurrentVersion: Int?
@@ -41,7 +41,7 @@ struct ITunesSearchResultItem: Codable {
     let version: String
     let artistID: Int?
     let artistName: String
-    let price: Double
+    let price: Double?
     let resultDescription, bundleID: String?
     let averageUserRating: Double?
     let userRatingCount: Int?
@@ -70,4 +70,6 @@ enum PrimaryGenreName: String, Codable {
     case sports = "Sports"
     case book = "Book"
     case healthAndFinance = "Health & Fitness"
+    case medical = "Medical"
+    case sticker = "Stickers"
 }

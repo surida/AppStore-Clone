@@ -15,7 +15,6 @@ class SearchResultCell: UICollectionViewCell {
     
     let appIconImageView: UIImageView = {
         let iv = UIImageView()
-        iv.backgroundColor = .red
         iv.layer.cornerRadius = 12
         iv.layer.masksToBounds = true
         return iv
@@ -68,7 +67,6 @@ class SearchResultCell: UICollectionViewCell {
         sv.axis = .horizontal
         sv.spacing = 12
         sv.alignment = .center
-//        sv.addBackground(color: .darkGray)
         return sv
     }()
     
@@ -100,7 +98,6 @@ class SearchResultCell: UICollectionViewCell {
     
     func createScreenShotImageView() -> UIImageView {
         let iv = UIImageView()
-        iv.backgroundColor = .blue
         iv.contentMode = .scaleAspectFit // change something?
         iv.layer.cornerRadius = 8
         iv.layer.masksToBounds = true

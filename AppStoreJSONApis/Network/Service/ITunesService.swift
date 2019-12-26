@@ -23,7 +23,7 @@ class ITunesService {
     func search(term: String, entity: String) -> Single<ITunesSearchResult> {
         return provider.rx.request(.search(term: term, entity: entity))//.asObservable()
             .flatMap { (response) -> Single<ITunesSearchResult> in
-                print("search: \(String(data: response.data, encoding: .utf8))")
+//                print("search: \(String(data: response.data, encoding: .utf8))")
 
                 if response.statusCode == 200 {
                     let ttt = try response.map(ITunesSearchResult.self)
