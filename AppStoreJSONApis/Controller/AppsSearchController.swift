@@ -28,29 +28,48 @@ class AppsSearchController: UIViewController {
     
     let iTunesService: ITunesService = ITunesService()
     
+    let searchController: UISearchController = {
+        let sc = UISearchController(searchResultsController: nil)
+        sc.dimsBackgroundDuringPresentation = false
+        return sc
+    }()
+    
+    // input
+    let refreshSubject = BehaviorRelay<String>(value: "instagram")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "SEARCH"
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
         self.view.backgroundColor = .white
         
         self.view.addSubview(collectionView)
         layout()
         bind()
     }
-    
+        
     func bind() {
         
-        //https://itunes.apple.com/search?term=instagram&entity=software
-        iTunesService.search(term: "instagram", entity: "software")
+        refreshSubject
+            .flatMap { [unowned self] in
+                self.iTunesService.search(term: $0, entity: "software")
+            }
             .map { $0.results }
+            .filter { $0.count > 0 }
             .asObservable()
             .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: SearchResultCell.self)) { (item, element, cell) in
-                print("\(element)")
+                print("element: \(element)")
                 cell.resultItem = element
             }
             .disposed(by: bag)
         
         collectionView.rx.setDelegate(self).disposed(by: bag)
+        
+        searchController.searchBar.rx.text.orEmpty
+            .filter { $0.count > 0 }
+            .bind(to: refreshSubject)
+            .disposed(by: bag)
         
     }
     

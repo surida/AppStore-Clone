@@ -41,7 +41,7 @@ struct ITunesSearchResultItem: Codable {
     let version: String
     let artistID: Int?
     let artistName: String
-    let price: Int
+    let price: Double
     let resultDescription, bundleID: String?
     let averageUserRating: Double?
     let userRatingCount: Int?
@@ -56,4 +56,18 @@ enum PrimaryGenreName: String, Codable {
     case reference = "Reference"
     case socialNetworking = "Social Networking"
     case utilities = "Utilities"
+    case news = "News"
+    case games = "Games"
+    case shopping = "Shopping"
+    case music = "Music"
+    case magazineAndNewspaper = "Magazines & Newspapers"
+    case travel = "Travel"
+    case navigation = "Navigation"
+    case finance = "Finance"
+    case enucation = "Education"
+    case weather = "Weather"
+    case foodAndDrink = "Food & Drink"
+    case sports = "Sports"
+    case book = "Book"
+    case healthAndFinance = "Health & Fitness"
 }

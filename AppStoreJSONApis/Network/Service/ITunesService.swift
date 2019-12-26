@@ -19,6 +19,7 @@ class ITunesService {
     static let instance = ITunesService()
     let provider = MoyaProvider<ITunesAPI>()
     
+    //https://itunes.apple.com/search?term=instagram&entity=software
     func search(term: String, entity: String) -> Single<ITunesSearchResult> {
         return provider.rx.request(.search(term: term, entity: entity))//.asObservable()
             .flatMap { (response) -> Single<ITunesSearchResult> in
