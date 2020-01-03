@@ -8,6 +8,7 @@
 
 import RxSwift
 import RxCocoa
+import RxOptional
 import SnapKit
 import RxDataSources
 
@@ -52,14 +53,15 @@ class AppsSearchController: UIViewController {
     func bind() {
         
         refreshSubject
+            .debug("refreshSubject")
+            .throttle(1.5, scheduler: MainScheduler.instance)
             .flatMap { [unowned self] in
                 self.iTunesService.search(term: $0, entity: "software")
             }
             .map { $0.results }
-            .filter { $0.count > 0 }
             .asObservable()
             .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: SearchResultCell.self)) { (item, element, cell) in
-                print("element: \(element)")
+//                print("element: \(element)")
                 cell.resultItem = element
             }
             .disposed(by: bag)
@@ -67,10 +69,15 @@ class AppsSearchController: UIViewController {
         collectionView.rx.setDelegate(self).disposed(by: bag)
         
         searchController.searchBar.rx.text.orEmpty
-            .filter { $0.count > 0 }
+            .map { text -> String in
+                text.count == 0 ? "instagram" : text
+            }
+            .do(onNext: {
+                print("searchBar.rx.text.orEmpty \($0)")
+            })
             .bind(to: refreshSubject)
             .disposed(by: bag)
-        
+
     }
     
     func layout() {
@@ -117,3 +124,4 @@ struct AppesSearchPreView: PreviewProvider {
     }
     
 }
+

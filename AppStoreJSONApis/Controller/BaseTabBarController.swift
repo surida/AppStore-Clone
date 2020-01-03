@@ -14,7 +14,6 @@ class BaseTabBarController: UITabBarController {
         super.viewDidLoad()
         
         let todayViewController = UIViewController()
-        todayViewController.view.backgroundColor = .white
         todayViewController.navigationItem.title = "TODAY"
         
         let todayNavController = UINavigationController(rootViewController: todayViewController)
@@ -22,11 +21,10 @@ class BaseTabBarController: UITabBarController {
         todayNavController.tabBarItem.image = #imageLiteral(resourceName: "today_icon")
         todayNavController.navigationBar.prefersLargeTitles = true
         
-        let redViewController = UIViewController()
-        redViewController.view.backgroundColor = .white
-        redViewController.navigationItem.title = "APPS"
+        let appsViewController = AppsController()
+        appsViewController.navigationItem.title = "APPS"
         
-        let appsNavController = UINavigationController(rootViewController: redViewController)
+        let appsNavController = UINavigationController(rootViewController: appsViewController)
         appsNavController.tabBarItem.title = "Apps"
         appsNavController.tabBarItem.image = #imageLiteral(resourceName: "apps")
         appsNavController.navigationBar.prefersLargeTitles = true
@@ -37,10 +35,9 @@ class BaseTabBarController: UITabBarController {
         searchNavController.tabBarItem.image = UIImage(named: "search")
         
         viewControllers = [
-            searchNavController,
-            todayNavController,
             appsNavController,
-            
+            searchNavController,
+            todayNavController
         ]
     }
     
