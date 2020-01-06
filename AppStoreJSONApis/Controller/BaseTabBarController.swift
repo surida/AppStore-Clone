@@ -21,7 +21,7 @@ class BaseTabBarController: UITabBarController {
         todayNavController.tabBarItem.image = #imageLiteral(resourceName: "today_icon")
         todayNavController.navigationBar.prefersLargeTitles = true
         
-        let appsViewController = AppsController()
+        let appsViewController = AppsPageController()
         appsViewController.navigationItem.title = "APPS"
         
         let appsNavController = UINavigationController(rootViewController: appsViewController)

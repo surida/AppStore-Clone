@@ -8,10 +8,12 @@
 
 import RxSwift
 import RxCocoa
+import RxDataSources
 
-class AppsController: UIViewController {
+class AppsPageController: UIViewController {
     let bag = DisposeBag()
     private let cellId = "cellId"
+    private let headerId = "headerId"
 
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -19,7 +21,9 @@ class AppsController: UIViewController {
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(AppsGroupCell.self, forCellWithReuseIdentifier: cellId)
+        cv.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         cv.backgroundColor = .white
+        cv.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
         return cv
     }()
     
@@ -33,10 +37,22 @@ class AppsController: UIViewController {
     
     func bind() {
         
-        Observable.from([1, 2, 3, 4, 5, 6, 7])
-            .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: AppsGroupCell.self)) { (row, element, cell) in
-                // code here
+        let items = Observable.just([SectionModel(model: "first", items: [1, 2, 3, 4, 5])])
+        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Int>>(
+            configureCell: { [unowned self] (ds, cv, indexPath, item) -> UICollectionViewCell in
+                let cell = cv.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath)
+                return cell
+            },
+            configureSupplementaryView: { [unowned self] (ds, cv, kind, indexPath) -> UICollectionReusableView in
+                let sectionModel = ds.sectionModels[indexPath.section].model
+                let headerView = cv.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: self.headerId, for: indexPath)
+//                headerView.backgroundColor = .red
+                return headerView
             }
+        )
+        
+        items
+            .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
         collectionView.rx.setDelegate(self).disposed(by: bag)
@@ -50,12 +66,19 @@ class AppsController: UIViewController {
     }
 }
 
-extension AppsController: UICollectionViewDelegateFlowLayout {
+extension AppsPageController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: collectionView.frame.width, height: 300)
     }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .init(width: collectionView.frame.width, height: 300)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+    }
 }
 
 import SwiftUI
@@ -70,7 +93,7 @@ struct AppsControllerPreView: PreviewProvider {
     struct ContainerView: UIViewControllerRepresentable {
         
         func makeUIViewController(context: UIViewControllerRepresentableContext<AppsControllerPreView.ContainerView>) -> UIViewController {
-            let naviVC = UINavigationController(rootViewController: AppsController())
+            let naviVC = UINavigationController(rootViewController: AppsPageController())
             naviVC.navigationBar.prefersLargeTitles = true
             return naviVC
         }
