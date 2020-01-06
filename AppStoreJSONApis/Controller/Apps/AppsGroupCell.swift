@@ -13,9 +13,15 @@ class AppsGroupCell: UICollectionViewCell {
     let bag = DisposeBag()
     private let cellId = "cellId"
 
-    
     let titleLabel = UILabel(text: "App Section", font: .boldSystemFont(ofSize: 30))
     let horizontalController = AppsHorizontalController()
+
+    var feed: Feed! {
+        didSet {
+            titleLabel.text = feed.title
+            horizontalController.feedResultList = feed.results
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

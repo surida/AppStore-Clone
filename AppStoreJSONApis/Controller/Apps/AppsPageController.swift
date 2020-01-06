@@ -27,6 +27,8 @@ class AppsPageController: UIViewController {
         return cv
     }()
     
+    let iTunesService: ITunesService = ITunesService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Apps"
@@ -37,16 +39,21 @@ class AppsPageController: UIViewController {
     
     func bind() {
         
-        let items = Observable.just([SectionModel(model: "first", items: [1, 2, 3, 4, 5])])
-        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Int>>(
-            configureCell: { [unowned self] (ds, cv, indexPath, item) -> UICollectionViewCell in
-                let cell = cv.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath)
+        let items = iTunesService.fetchGame()
+            .map { $0.feed }
+            .map { [SectionModel(model: "first", items: [$0])] }
+            .asObservable()
+        
+        
+        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Feed>>(
+            configureCell: { [unowned self] (ds, cv, indexPath, item) -> AppsGroupCell in
+                let cell = cv.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath) as! AppsGroupCell
+                cell.feed = item
                 return cell
             },
             configureSupplementaryView: { [unowned self] (ds, cv, kind, indexPath) -> UICollectionReusableView in
                 let sectionModel = ds.sectionModels[indexPath.section].model
                 let headerView = cv.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: self.headerId, for: indexPath)
-//                headerView.backgroundColor = .red
                 return headerView
             }
         )

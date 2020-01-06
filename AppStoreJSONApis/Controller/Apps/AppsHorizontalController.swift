@@ -23,6 +23,14 @@ class AppsHorizontalController: UIViewController {
         return cv
     }()
 
+    let feedResultListSubject = BehaviorRelay<[FeedResult]>(value: [])
+    
+    var feedResultList: [FeedResult]! {
+        didSet {
+            feedResultListSubject.accept(feedResultList)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .brown
@@ -32,8 +40,10 @@ class AppsHorizontalController: UIViewController {
     }
     
     func bind() {
-        Observable.from([1, 2, 3, 4, 5, 6, 7])
-            .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: UICollectionViewCell.self)) { (row, element, cell) in
+        
+        feedResultListSubject.asObservable()
+            .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: AppRowCell.self)) { (row, element, cell) in                
+                cell.feedResult = element
             }
             .disposed(by: bag)
         

@@ -17,6 +17,7 @@
 		F008DA7123C2ECD800116D15 /* AppsPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008DA7023C2ECD800116D15 /* AppsPageHeader.swift */; };
 		F008DA7323C2F80D00116D15 /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008DA7223C2F80D00116D15 /* AppsHeaderHorizontalController.swift */; };
 		F008DA7523C2FE5B00116D15 /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008DA7423C2FE5B00116D15 /* AppsHeaderCell.swift */; };
+		F01FA8DB23C31B5400B51B5D /* ITunesFetchGameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01FA8DA23C31B5400B51B5D /* ITunesFetchGameResult.swift */; };
 		F058104623B0B16000B48272 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058104523B0B16000B48272 /* AppsSearchController.swift */; };
 		F058104A23B0C31D00B48272 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058104923B0C31D00B48272 /* SearchResultCell.swift */; };
 		F05B096723BF220400E8EE00 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B096623BF220400E8EE00 /* AppsGroupCell.swift */; };
@@ -28,7 +29,7 @@
 		F0D5B0BE23B20A71002CC5F2 /* ITunesSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5B0BD23B20A71002CC5F2 /* ITunesSearchResult.swift */; };
 		F0D5B0C023B20D42002CC5F2 /* ITunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5B0BF23B20D42002CC5F2 /* ITunesAPI.swift */; };
 		F0F5657E23C2C6BE009E79A0 /* AppRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5657D23C2C6BE009E79A0 /* AppRowCell.swift */; };
-		F0F5658023C2D2EA009E79A0 /* AppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5657F23C2D2EA009E79A0 /* AppsController.swift */; };
+		F0F5658023C2D2EA009E79A0 /* AppsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5657F23C2D2EA009E79A0 /* AppsPageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F008DA7023C2ECD800116D15 /* AppsPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageHeader.swift; sourceTree = "<group>"; };
 		F008DA7223C2F80D00116D15 /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
 		F008DA7423C2FE5B00116D15 /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
+		F01FA8DA23C31B5400B51B5D /* ITunesFetchGameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesFetchGameResult.swift; sourceTree = "<group>"; };
 		F058104523B0B16000B48272 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
 		F058104923B0C31D00B48272 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		F05B096623BF220400E8EE00 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
@@ -57,7 +59,7 @@
 		F0D5B0BD23B20A71002CC5F2 /* ITunesSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesSearchResult.swift; sourceTree = "<group>"; };
 		F0D5B0BF23B20D42002CC5F2 /* ITunesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITunesAPI.swift; sourceTree = "<group>"; };
 		F0F5657D23C2C6BE009E79A0 /* AppRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRowCell.swift; sourceTree = "<group>"; };
-		F0F5657F23C2D2EA009E79A0 /* AppsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
+		F0F5657F23C2D2EA009E79A0 /* AppsPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				F0D5B0BD23B20A71002CC5F2 /* ITunesSearchResult.swift */,
+				F01FA8DA23C31B5400B51B5D /* ITunesFetchGameResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -197,7 +200,7 @@
 		F0F5657C23C2BB0F009E79A0 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
-				F0F5657F23C2D2EA009E79A0 /* AppsController.swift */,
+				F0F5657F23C2D2EA009E79A0 /* AppsPageController.swift */,
 				F05B096623BF220400E8EE00 /* AppsGroupCell.swift */,
 				F008DA7023C2ECD800116D15 /* AppsPageHeader.swift */,
 				F008DA7223C2F80D00116D15 /* AppsHeaderHorizontalController.swift */,
@@ -331,10 +334,11 @@
 				F09AA3C223B1A99600317F73 /* UIView+Extensition.swift in Sources */,
 				F0D5B0BB23B2080D002CC5F2 /* ITunesService.swift in Sources */,
 				F05B096723BF220400E8EE00 /* AppsGroupCell.swift in Sources */,
-				F0F5658023C2D2EA009E79A0 /* AppsController.swift in Sources */,
+				F0F5658023C2D2EA009E79A0 /* AppsPageController.swift in Sources */,
 				F0D5B0C023B20D42002CC5F2 /* ITunesAPI.swift in Sources */,
 				F008DA7123C2ECD800116D15 /* AppsPageHeader.swift in Sources */,
 				F09AA3C123B1A99600317F73 /* UIStackView+Extensions.swift in Sources */,
+				F01FA8DB23C31B5400B51B5D /* ITunesFetchGameResult.swift in Sources */,
 				F058104623B0B16000B48272 /* AppsSearchController.swift in Sources */,
 				F058104A23B0C31D00B48272 /* SearchResultCell.swift in Sources */,
 				F09AA3C423B1AB5B00317F73 /* UILabel+Extensition.swift in Sources */,

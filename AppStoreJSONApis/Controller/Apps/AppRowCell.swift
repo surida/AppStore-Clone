@@ -53,6 +53,16 @@ class AppRowCell: UICollectionViewCell {
         return sv
     }()
     
+    var feedResult: FeedResult? {
+        didSet {
+            nameLabel.text = feedResult?.name
+            companyLabel.text = feedResult?.artistName
+            if let urlStr = feedResult?.artworkUrl100 {
+                imageView.sd_setImage(with: URL(string: urlStr), completed: nil)
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 //        self.backgroundColor = .orange
