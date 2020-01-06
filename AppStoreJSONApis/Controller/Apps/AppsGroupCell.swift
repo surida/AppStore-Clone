@@ -19,7 +19,7 @@ class AppsGroupCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.contentView.backgroundColor = .purple
+//        self.contentView.backgroundColor = .purple
         contentView.addSubviews([
             titleLabel,
             horizontalController.view
@@ -29,7 +29,7 @@ class AppsGroupCell: UICollectionViewCell {
     
     func layout() {
         titleLabel.snp.makeConstraints {
-            $0.leading.top.right.equalToSuperview()
+            $0.leading.top.right.equalToSuperview().inset(16)
         }
         
         horizontalController.view.snp.makeConstraints {

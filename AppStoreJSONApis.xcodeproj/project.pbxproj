@@ -25,6 +25,7 @@
 		F0D5B0BB23B2080D002CC5F2 /* ITunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5B0BA23B2080D002CC5F2 /* ITunesService.swift */; };
 		F0D5B0BE23B20A71002CC5F2 /* ITunesSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5B0BD23B20A71002CC5F2 /* ITunesSearchResult.swift */; };
 		F0D5B0C023B20D42002CC5F2 /* ITunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5B0BF23B20D42002CC5F2 /* ITunesAPI.swift */; };
+		F0F5657E23C2C6BE009E79A0 /* AppRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5657D23C2C6BE009E79A0 /* AppRowCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		F0D5B0BA23B2080D002CC5F2 /* ITunesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesService.swift; sourceTree = "<group>"; };
 		F0D5B0BD23B20A71002CC5F2 /* ITunesSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesSearchResult.swift; sourceTree = "<group>"; };
 		F0D5B0BF23B20D42002CC5F2 /* ITunesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITunesAPI.swift; sourceTree = "<group>"; };
+		F0F5657D23C2C6BE009E79A0 /* AppRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRowCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,11 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				C74A89E0220E47A600B61711 /* BaseTabBarController.swift */,
-				F058104523B0B16000B48272 /* AppsSearchController.swift */,
-				F058104923B0C31D00B48272 /* SearchResultCell.swift */,
-				F05B096423BEE2C100E8EE00 /* AppsController.swift */,
-				F05B096623BF220400E8EE00 /* AppsGroupCell.swift */,
-				F05B096823BF295100E8EE00 /* AppsHorizontalController.swift */,
+				F0F5657B23C2BAF9009E79A0 /* Search */,
+				F0F5657C23C2BB0F009E79A0 /* Apps */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -178,6 +177,26 @@
 				F0D5B0BD23B20A71002CC5F2 /* ITunesSearchResult.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		F0F5657B23C2BAF9009E79A0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F058104523B0B16000B48272 /* AppsSearchController.swift */,
+				F058104923B0C31D00B48272 /* SearchResultCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F0F5657C23C2BB0F009E79A0 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				F05B096423BEE2C100E8EE00 /* AppsController.swift */,
+				F05B096623BF220400E8EE00 /* AppsGroupCell.swift */,
+				F05B096823BF295100E8EE00 /* AppsHorizontalController.swift */,
+				F0F5657D23C2C6BE009E79A0 /* AppRowCell.swift */,
+			);
+			path = Apps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +328,7 @@
 				F09AA3C423B1AB5B00317F73 /* UILabel+Extensition.swift in Sources */,
 				F05B096523BEE2C100E8EE00 /* AppsController.swift in Sources */,
 				F05B096923BF295100E8EE00 /* AppsHorizontalController.swift in Sources */,
+				F0F5657E23C2C6BE009E79A0 /* AppRowCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

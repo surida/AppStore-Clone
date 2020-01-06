@@ -19,7 +19,7 @@ class AppsController: UIViewController {
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(AppsGroupCell.self, forCellWithReuseIdentifier: cellId)
-        cv.backgroundColor = .yellow
+        cv.backgroundColor = .white
         return cv
     }()
     
@@ -53,7 +53,7 @@ class AppsController: UIViewController {
 extension AppsController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: collectionView.frame.width, height: 180)
+        return .init(width: collectionView.frame.width, height: 300)
     }
     
 }

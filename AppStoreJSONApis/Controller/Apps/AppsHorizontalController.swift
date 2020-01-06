@@ -18,8 +18,8 @@ class AppsHorizontalController: UIViewController {
         layout.scrollDirection = .horizontal
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-        cv.backgroundColor = .purple
+        cv.register(AppRowCell.self, forCellWithReuseIdentifier: cellId)
+        cv.backgroundColor = .white
         return cv
     }()
 
@@ -34,7 +34,6 @@ class AppsHorizontalController: UIViewController {
     func bind() {
         Observable.from([1, 2, 3, 4, 5, 6, 7])
             .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: UICollectionViewCell.self)) { (row, element, cell) in
-                cell.contentView.backgroundColor = .red
             }
             .disposed(by: bag)
         
@@ -51,7 +50,7 @@ class AppsHorizontalController: UIViewController {
 
 extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: collectionView.frame.width - 18 - 16*2, height: (collectionView.frame.height - 8*2 - 12*2) / 3) //- 8*2 - 12*2
+        return .init(width: collectionView.frame.width - 18 - 16*2, height: floor((collectionView.frame.height - 8*2 - 12*2) / 3))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
