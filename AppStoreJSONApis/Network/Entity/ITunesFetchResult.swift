@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ITunesFetchGameResult: Codable {
+struct ITunesFetchResult: Codable {
     let feed: Feed
 }
 

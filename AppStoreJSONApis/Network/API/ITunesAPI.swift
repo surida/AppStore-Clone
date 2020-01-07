@@ -10,10 +10,14 @@ import Moya
 
 //https://itunes.apple.com/search?term=instagram&entity=software
 //https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/25/explicit.json
+//https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing/all/25/explicit.json
+//https://rss.itunes.apple.com/api/v1/us/ios-apps/top-free/all/25/explicit.json
 
 enum ITunesAPI {
     case search(term: String, entity: String)
     case fetchGames
+    case fetchTopgrossing
+    case fetchTopFree
 }
 
 extension ITunesAPI: TargetType {
@@ -21,7 +25,7 @@ extension ITunesAPI: TargetType {
         switch self {
         case .search:
             return URL(string: "https://itunes.apple.com")!
-        case .fetchGames:
+        case .fetchGames, .fetchTopgrossing, .fetchTopFree:
             return URL(string: "https://rss.itunes.apple.com")!
         }
         
@@ -33,6 +37,10 @@ extension ITunesAPI: TargetType {
             return "search"
         case .fetchGames:
             return "api/v1/us/ios-apps/new-games-we-love/all/25/explicit.json"
+        case .fetchTopgrossing:
+            return "api/v1/us/ios-apps/top-grossing/all/25/explicit.json"
+        case .fetchTopFree:
+            return "api/v1/us/ios-apps/top-free/all/25/explicit.json"
         }
     }
     
@@ -40,7 +48,7 @@ extension ITunesAPI: TargetType {
         switch self {
         case .search:
             return .get
-        case .fetchGames:
+        case .fetchGames, .fetchTopgrossing, .fetchTopFree:
             return .get
         }
     }
@@ -57,7 +65,7 @@ extension ITunesAPI: TargetType {
         case .search(let term, let entity):
             parameters = ["term": term, "entity": entity]
             parameterEncoding = URLEncoding.default
-        case .fetchGames:
+        case .fetchGames, .fetchTopgrossing, .fetchTopFree:
             parameters = nil
             parameterEncoding = URLEncoding.default
         }

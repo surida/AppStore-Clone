@@ -38,11 +38,17 @@ class AppsPageController: UIViewController {
     }
     
     func bind() {
-        
-        let items = iTunesService.fetchGame()
-            .map { $0.feed }
-            .map { [SectionModel(model: "first", items: [$0])] }
-            .asObservable()
+                    
+        let items = Observable
+            .zip(
+                iTunesService.fetchGame().map { $0.feed }.asObservable(),
+                iTunesService.fetchTopGrossing().map { $0.feed }.asObservable(),
+                iTunesService.fetchTopFree().map { $0.feed }.asObservable()
+            )
+            .map {
+                [SectionModel(model: "frist", items: [$0, $1, $2])]
+            }
+            .share()
         
         
         let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Feed>>(

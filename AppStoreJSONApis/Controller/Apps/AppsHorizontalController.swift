@@ -40,7 +40,6 @@ class AppsHorizontalController: UIViewController {
     }
     
     func bind() {
-        
         feedResultListSubject.asObservable()
             .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: AppRowCell.self)) { (row, element, cell) in                
                 cell.feedResult = element
@@ -72,28 +71,6 @@ extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 12, left: 16, bottom: 12, right: 16) //.init(top: 12, left: 16, bottom: 12, right: 16)
-    }
-}
-
-import SwiftUI
-@available(iOS 13.0, *)
-
-struct AppsHorizontalControllerPreview: PreviewProvider {
-    
-    static var previews: some View {
-//        Text("123")
-        ContainerView()
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<AppsHorizontalControllerPreview.ContainerView>) -> UIViewController {
-            return AppsHorizontalController()
-        }
-        
-        func updateUIViewController(_ uiViewController: AppsHorizontalControllerPreview.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<AppsHorizontalControllerPreview.ContainerView>) {
-            // ...
-        }
+        return .init(top: 12, left: 16, bottom: 12, right: 16)
     }
 }

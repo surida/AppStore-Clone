@@ -12,7 +12,7 @@ import Moya
 
 enum ITunesError: Error {
     case searchFailed
-    case fetchGameFailed
+    case fetchFailed
 }
 
 class ITunesService {
@@ -34,19 +34,42 @@ class ITunesService {
         }
     }
     
-    func fetchGame() -> Single<ITunesFetchGameResult> {
+    func fetchGame() -> Single<ITunesFetchResult> {
         return provider.rx.request(.fetchGames)
-            .flatMap { (response) -> Single<ITunesFetchGameResult> in
+            .flatMap { (response) -> Single<ITunesFetchResult> in
                 print("fetchGame: \(String(data: response.data, encoding: .utf8))")
                 if response.statusCode == 200 {
-                    let result = try response.map(ITunesFetchGameResult.self)
-                    return Single<ITunesFetchGameResult>.just(result)
+                    let result = try response.map(ITunesFetchResult.self)
+                    return Single<ITunesFetchResult>.just(result)
                 } else {
-                    return Single<ITunesFetchGameResult>.error(ITunesError.fetchGameFailed) //.error(ITunesError.fetchGameFailed)
+                    return Single<ITunesFetchResult>.error(ITunesError.fetchFailed) //.error(ITunesError.fetchGameFailed)
                 }
             }
     }
     
+    func fetchTopGrossing() -> Single<ITunesFetchResult> {
+        return provider.rx.request(.fetchTopgrossing)
+            .flatMap { (response) -> Single<ITunesFetchResult> in
+                if response.statusCode == 200 {
+                    let result = try response.map(ITunesFetchResult.self)
+                    return Single<ITunesFetchResult>.just(result)
+                } else {
+                    return Single<ITunesFetchResult>.error(ITunesError.fetchFailed)
+                }
+            }
+    }
+    
+    func fetchTopFree() -> Single<ITunesFetchResult> {
+        return provider.rx.request(.fetchTopFree)
+            .flatMap { (response) -> Single<ITunesFetchResult> in
+                if response.statusCode == 200 {
+                    let result = try response.map(ITunesFetchResult.self)
+                    return Single<ITunesFetchResult>.just(result)
+                } else {
+                    return Single<ITunesFetchResult>.error(ITunesError.fetchFailed)
+                }
+            }
+    }
 }
 
 

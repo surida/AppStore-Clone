@@ -60,25 +60,3 @@ extension AppsHeaderHorizontalController: UICollectionViewDelegateFlowLayout {
     }
     
 }
-
-import SwiftUI
-@available(iOS 13.0, *)
-
-struct AppsHeaderHorizontalPreview: PreviewProvider {
-    
-    static var previews: some View {
-        ContainerView()
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-
-        func makeUIViewController(context: UIViewControllerRepresentableContext<AppsHeaderHorizontalPreview.ContainerView>) -> UIViewController {
-            return AppsHeaderHorizontalController()
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<AppsHeaderHorizontalPreview.ContainerView>) {
-            // ...
-        }
-    }
-
-}
