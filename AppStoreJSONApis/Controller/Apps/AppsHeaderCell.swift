@@ -28,6 +28,14 @@ class AppsHeaderCell: UICollectionViewCell {
         return sv
     }()
     
+    var appInfo: ITunesSocialApp? {
+        didSet {
+            companyLabel.text = appInfo?.name
+            titleLabel.text = appInfo?.tagline
+            imageView.sd_setImage(with: URL(string: appInfo!.imageURL), completed: nil)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 //        backgroundColor = .green

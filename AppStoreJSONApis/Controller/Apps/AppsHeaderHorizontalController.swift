@@ -23,6 +23,14 @@ class AppsHeaderHorizontalController: UIViewController {
         return cv
     }()
 
+    var socialAppList: ITunesSocialAppList? {
+        didSet {
+            socialAppListSubject.accept(socialAppList!)
+        }
+    }
+    
+    var socialAppListSubject = BehaviorRelay<[ITunesSocialApp]>(value: [])
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .purple
@@ -32,9 +40,11 @@ class AppsHeaderHorizontalController: UIViewController {
     }
     
     func bind() {
-        Observable.from([1, 2, 3])
-            .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: UICollectionViewCell.self)) { (row, element, cell) in                
+//        Observable.from([1, 2, 3])
+        socialAppListSubject
+            .bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: AppsHeaderCell.self)) { (row, element, cell) in
 //                cell.contentView.backgroundColor = row % 2 == 0 ? UIColor.yellow : UIColor.blue
+                cell.appInfo = element
             }
             .disposed(by: bag)
         

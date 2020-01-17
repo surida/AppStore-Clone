@@ -38,28 +38,32 @@ class AppsPageController: UIViewController {
     }
     
     func bind() {
-                    
+        
+        let ttt = iTunesService.fetchSocialApps().asObservable()
+        
         let items = Observable
             .zip(
+                iTunesService.fetchSocialApps().asObservable(),
                 iTunesService.fetchGame().map { $0.feed }.asObservable(),
                 iTunesService.fetchTopGrossing().map { $0.feed }.asObservable(),
                 iTunesService.fetchTopFree().map { $0.feed }.asObservable()
             )
             .map {
-                [SectionModel(model: "frist", items: [$0, $1, $2])]
+                [SectionModel(model: $0, items: [$1, $2, $3])]
             }
             .share()
         
         
-        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Feed>>(
+        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<ITunesSocialAppList, Feed>>(
             configureCell: { [unowned self] (ds, cv, indexPath, item) -> AppsGroupCell in
                 let cell = cv.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath) as! AppsGroupCell
                 cell.feed = item
                 return cell
             },
             configureSupplementaryView: { [unowned self] (ds, cv, kind, indexPath) -> UICollectionReusableView in
-                let sectionModel = ds.sectionModels[indexPath.section].model
-                let headerView = cv.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: self.headerId, for: indexPath)
+                let socialAppList = ds.sectionModels[indexPath.section].model
+                let headerView = cv.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: self.headerId, for: indexPath) as! AppsPageHeader
+                headerView.socialAppList = socialAppList
                 return headerView
             }
         )

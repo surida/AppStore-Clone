@@ -70,6 +70,18 @@ class ITunesService {
                 }
             }
     }
+    
+    func fetchSocialApps() -> Single<ITunesSocialAppList> {
+        return provider.rx.request(.fetchSocialApps)
+            .flatMap { (response) -> Single<ITunesSocialAppList> in
+                if response.statusCode == 200 {
+                    let result = try response.map(ITunesSocialAppList.self)
+                    return Single<ITunesSocialAppList>.just(result)
+                } else {
+                    return Single<ITunesSocialAppList>.error(ITunesError.fetchFailed)
+                }
+        }
+    }
 }
 
 

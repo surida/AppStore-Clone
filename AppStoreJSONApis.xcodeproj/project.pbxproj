@@ -17,6 +17,7 @@
 		F008DA7123C2ECD800116D15 /* AppsPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008DA7023C2ECD800116D15 /* AppsPageHeader.swift */; };
 		F008DA7323C2F80D00116D15 /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008DA7223C2F80D00116D15 /* AppsHeaderHorizontalController.swift */; };
 		F008DA7523C2FE5B00116D15 /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008DA7423C2FE5B00116D15 /* AppsHeaderCell.swift */; };
+		F0167CC423D1C08F00D25906 /* ITunesSocialAppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0167CC323D1C08F00D25906 /* ITunesSocialAppList.swift */; };
 		F01FA8DB23C31B5400B51B5D /* ITunesFetchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01FA8DA23C31B5400B51B5D /* ITunesFetchResult.swift */; };
 		F058104623B0B16000B48272 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058104523B0B16000B48272 /* AppsSearchController.swift */; };
 		F058104A23B0C31D00B48272 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058104923B0C31D00B48272 /* SearchResultCell.swift */; };
@@ -47,6 +48,7 @@
 		F008DA7023C2ECD800116D15 /* AppsPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageHeader.swift; sourceTree = "<group>"; };
 		F008DA7223C2F80D00116D15 /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
 		F008DA7423C2FE5B00116D15 /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
+		F0167CC323D1C08F00D25906 /* ITunesSocialAppList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITunesSocialAppList.swift; sourceTree = "<group>"; };
 		F01FA8DA23C31B5400B51B5D /* ITunesFetchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesFetchResult.swift; sourceTree = "<group>"; };
 		F058104523B0B16000B48272 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
 		F058104923B0C31D00B48272 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		F0D5B0BC23B20A5D002CC5F2 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				F0167CC323D1C08F00D25906 /* ITunesSocialAppList.swift */,
 				F0D5B0BD23B20A71002CC5F2 /* ITunesSearchResult.swift */,
 				F01FA8DA23C31B5400B51B5D /* ITunesFetchResult.swift */,
 			);
@@ -330,6 +333,7 @@
 				C74A89CF220E472D00B61711 /* AppDelegate.swift in Sources */,
 				F0D5B0BE23B20A71002CC5F2 /* ITunesSearchResult.swift in Sources */,
 				C74A89E1220E47A600B61711 /* BaseTabBarController.swift in Sources */,
+				F0167CC423D1C08F00D25906 /* ITunesSocialAppList.swift in Sources */,
 				F008DA7523C2FE5B00116D15 /* AppsHeaderCell.swift in Sources */,
 				F09AA3C223B1A99600317F73 /* UIView+Extensition.swift in Sources */,
 				F0D5B0BB23B2080D002CC5F2 /* ITunesService.swift in Sources */,

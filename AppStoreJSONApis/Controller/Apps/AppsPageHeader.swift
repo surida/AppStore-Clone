@@ -13,6 +13,12 @@ class AppsPageHeader: UICollectionReusableView {
     
     let pageController = AppsHeaderHorizontalController()
     
+    var socialAppList: ITunesSocialAppList? {
+        didSet {
+            pageController.socialAppList = socialAppList
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .blue
